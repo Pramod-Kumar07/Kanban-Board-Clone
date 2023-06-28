@@ -83,11 +83,14 @@ const TodoSlice = createSlice({
                 }
             })
         },
+        editList: (state, action) => {
+
+        },
         editDescription: (state, action)=>{
 
         }
     }
 });
 
-export const { addTask, deleteTask, addList, editTask, ListItemDelete,reorderList } = TodoSlice.actions;
+export const { addTask, deleteTask, addList, editTask, ListItemDelete,reorderList, editList } = TodoSlice.actions;
 export default TodoSlice.reducer;

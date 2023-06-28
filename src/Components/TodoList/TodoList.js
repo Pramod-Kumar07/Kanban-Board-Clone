@@ -96,6 +96,17 @@ function TodoList() {
     );
   };
 
+  const handleEditList = (titleId, listId, task, listContent) => {
+    setList(task);
+    if (task !== '') {
+      dispatch(editTask({ titleId: titleId, listId: listId, task: task }));
+      setShowEdit(!showEdit);
+    } else {
+      dispatch(editTask({ titleId: titleId, listId: listId, task: listContent }));
+      setShowEdit(!showEdit);
+    }
+  }
+
   return (
     <div className={styles.back}>
       <SearchAppBar />
@@ -162,7 +173,7 @@ function TodoList() {
                                     handleDynamicRouting(item.id, item.myList)
                                   }
                                 >
-                                  {item.myList}
+                                  <span onClick={()=> handleEditList(title.id, item.id, list, item.myList)}>{item.myList}</span>
                                 </p>
                                 <AiFillDelete
                                   className={styles.deleteListItem}
